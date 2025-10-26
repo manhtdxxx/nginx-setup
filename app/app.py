@@ -1,25 +1,24 @@
-from flask import Flask, Response
+from flask import Flask, request, make_response, render_template
 
 app = Flask(__name__)
 
-@app.route('/')
-def home():
-    return "🔒 Hello from Flask over HTTPS!"
+USERS = {"alice": "1234", "bob": "abcd"}
 
+@app.route("/", methods=["GET"])
+def index():
+    return render_template("index.html")
 
-@app.route('/keys')
-def show_keys():
-    certs_folder = "/app/certs/"
-    try:
-        with open(certs_folder + 'server.crt', 'r') as f:
-            cert_content = f.read()
-        with open(certs_folder + 'server.key', 'r') as f:
-            key_content = f.read()
-        combined = f"--- PUBLIC KEY / CERTIFICATE ---\n{cert_content}\n\n--- PRIVATE KEY ---\n{key_content}"
-        return Response(combined, mimetype='text/plain')
-    except Exception as e:
-        return f"Error reading keys: {e}", 500
-    
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        username = request.form.get("username", "")
+        password = request.form.get("password", "")
+        if USERS.get(username) == password:
+            resp = make_response(render_template("welcome.html", username=username))
+            resp.set_cookie("session", f"lab-{username}", httponly=True)
+            return resp
+        return render_template("login.html", error="Invalid username or password")
+    return render_template("login.html", error=None)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
