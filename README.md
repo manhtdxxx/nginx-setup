@@ -36,12 +36,15 @@ HTTPS: https://localhost:5000
 ## Illustrations
 
 **1. Request Flow**
+
 ![Request Flow](readme/request-flow.png)
 
 **2. Failed HTTP request**
+
 ![...](readme/http-request.png)
 
 **3. Successful HTTPS request**
+
 ![...](readme/https-request.png)
 
 
