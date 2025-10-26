@@ -18,7 +18,7 @@ ssl-on-nginx/
 
 **1, Clone the project:**
 ```bash
-git clone <repo-url>
+git clone https://github.com/manhtdxxx/ssl-on-nginx.git
 cd ssl-on-nginx
 ```
 
