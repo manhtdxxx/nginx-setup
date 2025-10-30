@@ -5,7 +5,7 @@ This project provides guidance and configuration to set up SSL (HTTPS) on an Ngi
 ## Project Structure
 
 ```text
-ssl-on-nginx/
+nginx-setup/
 ├── app/                # Web application
 ├── nginx/              # Nginx configuration handling SSL
 ├── readme/             # Illustrative images
@@ -18,7 +18,7 @@ ssl-on-nginx/
 
 **1, Clone the project:**
 ```bash
-git clone https://github.com/manhtdxxx/ssl-on-nginx.git
+git clone https://github.com/manhtdxxx/nginx-setup.git
 cd ssl-on-nginx
 ```
 
