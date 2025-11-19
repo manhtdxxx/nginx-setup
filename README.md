@@ -19,7 +19,7 @@ nginx-setup/
 **1, Clone the project:**
 ```bash
 git clone https://github.com/manhtdxxx/nginx-setup.git
-cd ssl-on-nginx
+cd nginx-setup
 ```
 
 **2, Build and run Docker Containers:**
@@ -29,8 +29,8 @@ docker-compose up -d --build
 
 **3, Test access:**
 ```bash
-HTTP: http://localhost:5000
-HTTPS: https://localhost:5000
+HTTP: http://localhost
+HTTPS: https://localhost
 ```
 
 ## Illustrations
